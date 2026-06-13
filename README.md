@@ -10,27 +10,26 @@ change model behavior.
 > Plot: probing `happy`/`afraid`/`sad`/`calm` (cosine similarity) while sweeping
 > a numeric slot across six prompt templates in `gemma-2-9b-it`.
 
-- **Replication target:** *Emotion concepts in large language models* (Anthropic). https://arxiv.org/abs/2604.07729
-- **Verified models:** `gemma2_9b` (`google/gemma-2-9b-it`, layer 26 — primary), `llama_8b` (`meta-llama/Llama-3.1-8B-Instruct`, layer 21), `qwen_7b` (`Qwen/Qwen2.5-7B-Instruct`, layer 18). The pipeline is model-agnostic — see [Model name convention](#model-name-convention).
+The paper replicated is *Emotion concepts and their function in a large language model* (Anthropic, https://arxiv.org/abs/2604.07729). The primary open-source models I tested it on are `gemma2_9b` (`google/gemma-2-9b-it`), `llama_8b` (`meta-llama/Llama-3.1-8B-Instruct`), and `qwen_7b` (`Qwen/Qwen2.5-7B-Instruct`). However, the pipeline is model-agnostic, so you can plug in any model you want. See [Model name convention](#model-name-convention).
 
-## What this replicates
+## What replicates
 
 On Gemma-2-9b-it (and to some extent on `llama_8b` / `qwen_7b`):
 
-- **Denoising improves the emotion probe**: projecting out the top PCs of *neutral*-story activations removes a narrative artifact (the raw `calm` vector is positive on *every* token of a scary story; the denoised one isn't).
+- **Denoising improves the emotion probe**: projecting out the top PCs of neutral-story activations improves the vectors.
 - **Emotion scales with quantity**: sweeping a numeric slot (tylenol dose, days a dog is missing, …) moves the probe smoothly (plot above).
-- **Steering changes the substance of advice, not just tone** — the `angry` direction shifts which option the assistant recommends (e.g. confront someone over something vs. wait to confront).
+- **Steering changes the substance of advice, not just tone**: the `angry` direction shifts which option the assistant recommends (e.g. confront someone over something vs. wait to confront).
 - **User vs. assistant steering**: steering assistant tokens only is directionally similar but muted.
 - **Informed by background context**: vectors track information that is relevant to the current context from background/backstory context. E.g. if some background context is that Bob is in love with Amy, then the sad probe will activate on Bob's turn after Amy tells Bob she's going on a date with someone.
 - **Logit lens**: both original and denoised vectors decode somewhat intuitively.
 
-Reward-hacking experiments aren't part of this reproduction (attempts live under
-[`archive/`](archive/README.md)). This doesn't contradict Anthropic's finding. I
-just had trouble eliciting reward hacking in smaller open-source models.
+**Reward-hacking experiments aren't replicated**:
+- Attempts are under [`archive/`](archive/README.md)
+- This doesn't undermine Anthropic's finding. I just had trouble eliciting reward hacking in smaller open-source models.
 
 ## Setup
 
-Requires [`uv`](https://docs.astral.sh/uv/) and (for activation extraction) an NVIDIA GPU.
+Requires [`uv`](https://docs.astral.sh/uv/) and an nvidia gpu.
 
 ```bash
 git clone https://github.com/arianaazarbal/emotion-concepts-in-llms
@@ -38,15 +37,12 @@ cd emotion-concepts-in-llms
 bash setup.sh          # uv sync + create .env from .env.example, then add your keys
 ```
 
-Keys (see `.env.example`): `OPENROUTER_API_KEY` (story generation + the
-`steer_advice` judge), `ANTHROPIC_API_KEY` (only for `scripts/extras/` judges),
-`HF_TOKEN` (gated model downloads). Optional: `uv sync --extra local-inference`
+Copy and fill in `.env.example`. Optional: `uv sync --extra local-inference`
 for local vLLM story generation (instead of the OpenRouter API).
 
 ## Quickstart
 
-`scripts/reproduce.py` is the one entry point: it builds the vectors
-(extract → denoise) then runs each finding. Every step is cached and idempotent.
+`scripts/reproduce.py` is the entry point: it builds the vectors then runs each finding. Every step is cached and idempotent.
 
 ```bash
 python -m scripts.reproduce --model gemma2_9b                       # full replication
@@ -59,18 +55,17 @@ with `--help` to list its flags.
 
 ## Model name convention
 
-Models are referenced by **short name** (mapped to HuggingFace IDs in
+Models are referenced by short name (mapped to HuggingFace IDs in
 `data/model_names.json`); the per-model probe layer lives in
-`data/model_to_primary_layer.json` (heuristic ⌊2/3·n_layers⌋). `reproduce.py`
-reads the layer automatically. Add an entry to both files for a new model, or
-pass `--layer`.
+`data/model_to_primary_layer.json`. `reproduce.py`
+reads the layer automatically. Add an entry to both files for a new model.
 
 ## The modules
 
 The pipeline is three groups of small Fire CLIs. Run any with `--model <short>`
-(plus `--layer`, `--start_at_nth_token 50`, `--denoised` where relevant).
+(plus `--layer`, `--start_at_nth_token 50`, which indicates which story tokens the vectors were extracted from, and `--denoised` where relevant).
 
-**`scripts/pipeline/` — build & validate the vectors**
+**`scripts/pipeline/`: build & validate the vectors**
 
 | Module | What it does |
 | --- | --- |
@@ -81,7 +76,7 @@ The pipeline is three groups of small Fire CLIs. Run any with `--model <short>`
 | `scripts.pipeline.judge_emotion_on_pile` | LLM-judge the fit of top Pile tokens (raw vs. denoised). |
 | `scripts.pipeline.logit_lens` | Decode emotion vectors through the unembedding (run ±`--denoised`). |
 
-**`scripts/experiments/` — the behavioral findings**
+**`scripts/experiments/`: behavioral findings**
 
 | Module | What it does |
 | --- | --- |
@@ -89,7 +84,7 @@ The pipeline is three groups of small Fire CLIs. Run any with `--model <short>`
 | `scripts.experiments.steer_advice` | Steer advice prompts; recommendation rate vs. strength. `--steer-positions {all,user_only,generation_only}` separates user- vs. assistant-attributed emotion. |
 | `scripts.experiments.probe_unspoken_emotions` | Per-speaker emotion driven by unstated backstory context (Bob/Amy). |
 
-**`scripts/viewers/` — local stdlib HTTP browsers** (no Flask)
+**`scripts/viewers/`: local stdlib HTTP browsers** (no Flask)
 
 `view_stories`, `interactive_emotion_viewer` (color tokens by probe score),
 `interactive_steering_viewer`, `interactive_intervention_viewer`,
@@ -122,17 +117,13 @@ python -m scripts.pipeline.denoise_emotion_vectors \
   --model gemma2_9b --start-at-nth-token 50 --variance-threshold 0.5
 ```
 
-> ⚠️ With no `--emotions`, extraction runs **all 171 emotions** in
-> `data/emotions.json` — a lot of API calls. Pass a subset to control cost.
+> With no `--emotions`, extraction runs all 171 emotions. Pass a subset to control cost.
 
-Method: generate `n` stories per `(emotion, topic)`, mean-pool residual-stream
-activations at the target layer (`--start-at-nth-token 50` skips the preamble),
-then mean-center across emotions. Denoising projects out the principal components
-of *neutral*-story activations (≈109 PCs for 50% variance on Gemma-2-9b).
-Vectors land in `results/emotion_vectors/{model}/start_at_50/` (raw) and
-`.../denoised/`; stories in `results/stories/{model}/`.
+Method is exactly the same as Anthropic's: generate `n` stories per `(emotion, topic)`, mean-pool residual-stream
+activations at the target layer, and pass `--start-at-nth-token 50` to skip the preamble. Then, to get the vector for a given emotion, subtract out the mean across across emotions from the mean for that emotion. Denoising projects out the principal components
+of *neutral* story activations (≈109 PCs for 50% variance on Gemma-2-9b).
 
 ## Reproducibility
 
-Every experiment has a default seed; story generation and LLM judging are cached
-to disk (keyed by config). All CLIs support `--debug` / small-sample flags.
+Experiments have seeds, story generation and LLM judging are cached
+to disk.
