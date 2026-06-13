@@ -1,0 +1,24 @@
+# --- model artifacts / generated results ---
+**.pt
+results/
+results/emotion_vectors/
+.cached/
+logs/
+
+# --- private research notes (never commit) ---
+replication_notes.md
+
+# --- secrets / local env ---
+**/.env
+.env
+
+# --- python / build artifacts ---
+**/__pycache__/
+*.egg-info/
+**/.venv/
+
+# --- editor / tooling caches ---
+**/.vscode/
+**/.idea/
+**/.pytest_cache/
+**/.ruff_cache/

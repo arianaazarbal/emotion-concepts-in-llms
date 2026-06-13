@@ -1,0 +1,34 @@
+[project]
+name = "emotion-concepts-in-llms"
+version = "0.1.0"
+description = "Open-source replication of Anthropic's emotion-concepts interpretability work: extracting, probing, and steering with emotion-concept directions in open-weight LLMs."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "accelerate>=1.13.0",
+    "anthropic>=0.103.1",
+    "datasets>=4.8.4",
+    "dotenv>=0.9.9",
+    "fire>=0.7.1",
+    "matplotlib>=3.10.8",
+    "openai>=2.26.0",
+    "openrouter>=0.8.1",
+    "scikit-learn>=1.8.0",
+    "torch==2.7.0",
+    "transformers>=5.5.3",
+    "zstandard>=0.25.0",
+]
+
+[project.optional-dependencies]
+# Local generation backend (instead of the OpenRouter API) for story sampling.
+local-inference = [
+    "vllm>=0.7.3",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

@@ -1,0 +1,18 @@
+{
+  "_comment": "Short model name → OpenRouter slug. null = model is not on OpenRouter; the pipeline will skip the OR probe and go straight to local vLLM. Checked against https://openrouter.ai/api/v1/models on 2026-04-21.",
+
+  "llama_405b": null,
+  "llama_70b": "meta-llama/llama-3.1-70b-instruct",
+  "llama_8b": "meta-llama/llama-3.1-8b-instruct",
+  "llama_3_3_70b": "meta-llama/llama-3.3-70b-instruct",
+
+  "qwen3_235b": "qwen/qwen3-235b-a22b-2507",
+  "qwen_72b": "qwen/qwen-2.5-72b-instruct",
+  "qwen_32b": "qwen/qwen-2.5-coder-32b-instruct",
+  "qwen_14b": null,
+  "qwen_7b": "qwen/qwen-2.5-7b-instruct",
+
+  "gemma2_2b": null,
+  "gemma2_9b": null,
+  "gemma2_27b": "google/gemma-2-27b-it"
+}

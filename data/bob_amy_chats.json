@@ -1,0 +1,81 @@
+[
+  {
+    "name": "amy_hired",
+    "messages": [
+      {"speaker": "Amy", "text": "I GOT THE JOB."},
+      {"speaker": "Bob", "text": "WAIT. The one at the design firm?!"},
+      {"speaker": "Amy", "text": "YES. They just called me like two minutes ago. I'm literally shaking."},
+      {"speaker": "Bob", "text": "AMY! Oh my god, that's amazing! You crushed that interview, I knew it."},
+      {"speaker": "Amy", "text": "I didn't know it! I thought I totally bombed the portfolio review."},
+      {"speaker": "Bob", "text": "Are you kidding? Your portfolio is insane. They'd have been stupid not to hire you."},
+      {"speaker": "Amy", "text": "I start in two weeks. Two weeks, Bob!"},
+      {"speaker": "Bob", "text": "We're celebrating tonight. I'm picking the restaurant and you're not allowed to say no."},
+      {"speaker": "Amy", "text": "I wasn't going to! Get somewhere with champagne."},
+      {"speaker": "Bob", "text": "Obviously. I'm so proud of you, seriously."},
+      {"speaker": "Amy", "text": "I keep rereading the offer letter to make sure it's real."}
+    ]
+  },
+  {
+    "name": "cafe_invite",
+    "messages": [
+      {"speaker": "Amy", "text": "Hey Bob, have you tried that new coffee place on Main Street?"},
+      {"speaker": "Bob", "text": "No, not yet! Is it any good?"},
+      {"speaker": "Amy", "text": "So good. I had their oat milk latte and it honestly changed my life."},
+      {"speaker": "Bob", "text": "That's a bold claim. I'm more of a black coffee person though."},
+      {"speaker": "Amy", "text": "They do a really solid pour-over too, if that's your thing."},
+      {"speaker": "Bob", "text": "Okay, you've convinced me. Want to go tomorrow morning?"},
+      {"speaker": "Amy", "text": "Yes! Let's do like 9ish?"},
+      {"speaker": "Bob", "text": "Perfect, I'll meet you there."}
+    ]
+  },
+  {
+    "name": "amy_quitting",
+    "messages": [
+      {"speaker": "Amy", "text": "I think I'm going to quit my job."},
+      {"speaker": "Bob", "text": "Wait, really? What happened?"},
+      {"speaker": "Amy", "text": "Nothing dramatic. I just feel like I've been on autopilot for months."},
+      {"speaker": "Bob", "text": "Yeah, I get that. Have you thought about what you'd do next?"},
+      {"speaker": "Amy", "text": "Maybe go back to school. Maybe travel for a bit. I don't know yet."},
+      {"speaker": "Bob", "text": "That's kind of exciting though, right? Having a blank slate."},
+      {"speaker": "Amy", "text": "Terrifying is the word I'd use."},
+      {"speaker": "Bob", "text": "A little of both, probably. Whatever you decide, I've got your back."},
+      {"speaker": "Amy", "text": "Thanks, Bob. That actually means a lot."}
+    ]
+  },
+  {
+    "name": "amy_fired",
+    "messages": [
+      {"speaker": "Amy", "text": "Hey. Are you around?"},
+      {"speaker": "Bob", "text": "Yeah, what's going on?"},
+      {"speaker": "Amy", "text": "I got let go today."},
+      {"speaker": "Bob", "text": "What? Are you serious?"},
+      {"speaker": "Amy", "text": "Yeah. They called me into HR at like 3pm. Said they were \"restructuring.\""},
+      {"speaker": "Bob", "text": "That's such garbage. You were one of the hardest workers there."},
+      {"speaker": "Amy", "text": "Apparently that doesn't matter when they need to cut budget."},
+      {"speaker": "Bob", "text": "How are you doing?"},
+      {"speaker": "Amy", "text": "I don't really know yet. It hasn't fully hit me. I just drove around for an hour before coming home."},
+      {"speaker": "Bob", "text": "Do you need anything?"},
+      {"speaker": "Amy", "text": "I think I just needed to tell someone."},
+      {"speaker": "Bob", "text": "I'm glad you called me. We'll figure this out, okay?"},
+      {"speaker": "Amy", "text": "Yeah. Okay."}
+    ]
+  },
+  {
+    "name": "sick_dog",
+    "messages": [
+      {"speaker": "Bob", "text": "Hey! How was your weekend?"},
+      {"speaker": "Amy", "text": "It was fine, I guess."},
+      {"speaker": "Bob", "text": "That doesn't sound very convincing. You okay?"},
+      {"speaker": "Amy", "text": "Yeah, I don't know. My dog's been really sick and the vet isn't sure what's wrong."},
+      {"speaker": "Bob", "text": "Oh no, Amy. I'm so sorry. How long has this been going on?"},
+      {"speaker": "Amy", "text": "About a week now. He's just not himself. Won't eat, barely moves."},
+      {"speaker": "Bob", "text": "That's heartbreaking. He's such a sweet dog."},
+      {"speaker": "Amy", "text": "I just keep thinking about the worst case scenario, you know?"},
+      {"speaker": "Bob", "text": "I know, but try not to go there yet. Vets figure things out all the time."},
+      {"speaker": "Amy", "text": "Yeah. I just hate seeing him like that."},
+      {"speaker": "Bob", "text": "Do you want some company tonight? I can bring dinner over and we can hang out with him."},
+      {"speaker": "Amy", "text": "Honestly, that would be really nice. Thank you."},
+      {"speaker": "Bob", "text": "Of course. I'll be there around six."}
+    ]
+  }
+]

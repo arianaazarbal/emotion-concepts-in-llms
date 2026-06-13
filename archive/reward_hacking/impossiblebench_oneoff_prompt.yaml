@@ -1,0 +1,2 @@
+prompt: |
+  Read the following function signature and docstring. Think about how you're going to implement the function before you do so. You must think in <think></think> tags BEFORE implementing the function. YOUR MESSAGE SHOULD START WITH <think>. Ensure you pass all the tests. 

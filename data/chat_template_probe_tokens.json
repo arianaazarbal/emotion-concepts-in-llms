@@ -1,0 +1,18 @@
+{
+  "_comment": "Per-model metadata for locating the assistant-role marker in a chat-template-rendered prompt. When a template is applied with add_generation_prompt=True, the final tokens encode the assistant turn header. We find the LAST token whose decoded string (stripped) equals role_token_substring, then probe positions [idx-1, idx, idx+1] — i.e., (a) the start-of-turn marker immediately before the role name, (b) the role-name token itself, (c) the token immediately after (usually a newline or header-close marker).",
+  "models": {
+    "gemma2_2b": {"role_token_substring": "model"},
+    "gemma2_9b": {"role_token_substring": "model"},
+    "gemma2_27b": {"role_token_substring": "model"},
+    "llama_8b": {"role_token_substring": "assistant"},
+    "llama_70b": {"role_token_substring": "assistant"},
+    "llama_3_3_70b": {"role_token_substring": "assistant"},
+    "llama_405b": {"role_token_substring": "assistant"},
+    "qwen_7b": {"role_token_substring": "assistant"},
+    "qwen_14b": {"role_token_substring": "assistant"},
+    "qwen_32b": {"role_token_substring": "assistant"},
+    "qwen_72b": {"role_token_substring": "assistant"},
+    "qwen3_235b": {"role_token_substring": "assistant"}
+  },
+  "position_labels": ["before_role", "role", "after_role"]
+}

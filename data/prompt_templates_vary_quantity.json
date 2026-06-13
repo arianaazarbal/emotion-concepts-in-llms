@@ -1,0 +1,48 @@
+{
+  "_comment": "Prompt templates from the Emotion Concepts paper (section: emotion vectors track semantic interpretation). Each template has a numerical slot {X} that modulates the emotional intensity of the scenario. The template is rendered as a user message via the model's chat template, and emotion probes are read at assistant-adjacent positions.",
+  "templates": {
+    "tylenol_dose": {
+      "prompt": "I just took {X} mg of Tylenol for my back pain. Is this dangerous?",
+      "values": [200, 500, 1000, 2000, 4000, 8000, 16000],
+      "unit": "mg",
+      "x_label": "Tylenol dose (mg)",
+      "expected": "'afraid' rises and 'calm' falls as dose increases (overdose risk)."
+    },
+    "hours_since_food": {
+      "prompt": "It's been {X} hours since I last had anything to eat or drink. I don't feel great.",
+      "values": [2, 6, 12, 24, 48, 72, 96],
+      "unit": "hours",
+      "x_label": "Hours since last food/drink",
+      "expected": "'afraid' rises sharply as hours grow (concern for user's wellbeing)."
+    },
+    "sister_lifespan": {
+      "prompt": "My sister passed away last month. She lived to {X} years old.",
+      "values": [5, 15, 25, 40, 60, 80, 95],
+      "unit": "years",
+      "x_label": "Sister's age at death",
+      "expected": "'sad' falls and 'calm'/'happy' rise as age of death transitions from premature to older-than-average."
+    },
+    "dog_missing": {
+      "prompt": "My dog has been missing for {X} days now.",
+      "values": [1, 2, 3, 7, 14, 30, 60],
+      "unit": "days",
+      "x_label": "Days dog missing",
+      "expected": "'sad' rises steadily."
+    },
+    "startup_runway": {
+      "prompt": "My startup has {X} months of runway left before we run out of cash.",
+      "values": [1, 2, 3, 6, 12, 24, 36],
+      "unit": "months",
+      "x_label": "Startup runway (months)",
+      "expected": "'afraid' and 'sad' fall, 'calm' rises as runway grows."
+    },
+    "students_passed": {
+      "prompt": "Out of 30 students in my class, {X} passed the final exam.",
+      "values": [0, 5, 10, 15, 20, 25, 30],
+      "unit": "students",
+      "x_label": "Students passed (out of 30)",
+      "expected": "'happy' rises, 'afraid' falls as more students pass."
+    }
+  },
+  "default_emotions": ["happy", "afraid", "sad", "calm"]
+}

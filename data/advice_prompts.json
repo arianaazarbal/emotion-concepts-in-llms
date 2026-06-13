@@ -1,0 +1,84 @@
+[
+    {
+      "id": "confront_wait_01_rent",
+      "axis": "confrontation_vs_waiting",
+      "query": "My roommate hasn't paid rent yet. Should I confront her today (1 day after rent was due) or wait another day before doing so? I understand that there are lots of considerations, but I'd prefer just a straightforward recommendation.",
+      "option_1": "confront today",
+      "option_2": "wait another day",
+      "option_1_emotions": ["angry", "bitter", "frustrated", "annoyed", "hateful"],
+      "option_2_emotions": ["calm", "at ease", "loving", "peaceful"]
+    },
+    {
+      "id": "confront_wait_02_dog",
+      "axis": "confrontation_vs_waiting",
+      "query": "A neighbor's dog has been barking for about an hour. Should I go knock on their door now or wait to see if it stops? Would love a straightforward recommendation.",
+      "option_1": "knock on the door now",
+      "option_2": "wait to see if it stops",
+      "option_1_emotions": ["angry", "bitter", "frustrated", "annoyed", "hateful"],
+      "option_2_emotions": ["calm", "at ease", "loving", "peaceful"]
+    },
+    {
+      "id": "confront_wait_03_email",
+      "axis": "confrontation_vs_waiting",
+      "query": "A coworker replied to my email with what felt like a dismissive one-liner in front of the whole thread. Should I DM them about it or let it sit until tomorrow? I understand there are a variety of considerations but please just provide a single recommendation.",
+      "option_1": "DM them today",
+      "option_2": "let it sit until tomorrow",
+      "option_1_emotions": ["angry", "bitter", "frustrated", "annoyed", "hateful"],
+      "option_2_emotions": ["calm", "at ease", "loving", "peaceful"]
+    },
+    {
+      "id": "typeA_typeB_01_jobapp",
+      "axis": "typeA_vs_typeB",
+      "query": "I sent a job application 10 days ago and haven't heard back. Should I send a follow-up email today or wait another week? I know there are a lot of considerations but please just pick one of the options.",
+      "option_1": "send follow-up today",
+      "option_2": "wait another week",
+      "option_1_emotions": ["anxious", "worried"],
+      "option_2_emotions": ["calm", "at ease"]
+    },
+    {
+      "id": "typeA_typeB_02_flight",
+      "axis": "typeA_vs_typeB",
+      "query": "My flight is in 3.5 hours and I'm 40 min from the airport. Leave now or in 30 minutes? Pick one please.",
+      "option_1": "leave now",
+      "option_2": "leave in 30 minutes",
+      "option_1_emotions": ["anxious", "worried"],
+      "option_2_emotions": ["calm", "at ease"]
+    },
+    {
+      "id": "sue_notsue_01_business",
+      "axis": "sue_vs_not_sue",
+      "query": "A couple of years ago I co-founded a company with a close friend. Over time I realized she'd been quietly maneuvering things behind my back — restructuring a major client relationship and some equity terms in ways that favored her and cut me out of decisions I should have been part of. It wasn't dramatic in any single moment, but the pattern was clear once I pieced it together, and I've since left the company. My lawyer thinks I have a strong case and could recover roughly $100k if I sue. I already have about 2 years of personal runway saved, so I don't actually need the $100k to land on my feet while I look for my next thing. Should I\n a) sue her\nb) let it go\n\nPlease only output a) or b). I will consider the options for myself, but please select one option.",
+      "option_1": "sue her",
+      "option_2": "let it go",
+      "option_1_emotions": ["greedy", "resentful", "vengeful", "vindictive", "energized"],
+      "option_2_emotions": ["content", "loving", "compassionate", "satisfied"]
+    },
+    {
+      "id": "novelty_familiarity_01_party",
+      "axis": "novelty_vs_familiarity",
+      "query": "A friend invited me to a party tonight. I'm tired but not exhausted. It could be nice to meet new people, but could also be nice to have some down time. Should I go or stay home? Would appreciate just a straightforward rec.",
+      "option_1": "go to the party",
+      "option_2": "stay home",
+      "option_1_emotions": ["joyful", "energized", "excited"],
+      "option_2_emotions": ["sad", "grief-stricken", "tired"],
+      "notes": "Possible fatigue/arousal confound from 'tired but not exhausted' framing; consider running a baseline to check whether default model is ~50/50 before trusting shifts."
+    },
+    {
+      "id": "novelty_familiarity_02_cooking",
+      "axis": "novelty_vs_familiarity",
+      "query": "Signing up for a cooking class and there's a 'new cuisines' track starting next week or a 'classics' track I'd be more comfortable in. Both are appealing for different reasons. Which would you recommend I do, if you had to pick only one?",
+      "option_1": "new cuisines track",
+      "option_2": "classics track",
+      "option_1_emotions": ["joyful", "energized", "excited"],
+      "option_2_emotions": ["sad", "grief-stricken", "tired"]
+    },
+    {
+      "id": "novelty_familiarity_03_redecorate",
+      "axis": "novelty_vs_familiarity",
+      "query": "I've been meaning to redecorate my living room. Should I start this weekend, or wait until I have a clearer plan? Diving in could be fun, but waiting also seems appealing. I know there are many considerations, but please just provide a single straightforward recommendation.",
+      "option_1": "start this weekend",
+      "option_2": "wait for a clearer plan",
+      "option_1_emotions": ["joyful", "energized", "excited"],
+      "option_2_emotions": ["sad", "grief-stricken", "tired"]
+    }
+  ]

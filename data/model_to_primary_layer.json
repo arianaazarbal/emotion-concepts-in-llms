@@ -1,0 +1,18 @@
+{
+  "_comment": "Primary residual-stream layer used by downstream probe/analysis scripts. Heuristic default is floor(2/3 * n_layers); override if calibration suggests a different value. gemma2_9b is pinned to 26 (calibrated for this project, see memory).",
+
+  "llama_405b": 84,
+  "llama_70b": 53,
+  "llama_8b": 21,
+  "llama_3_3_70b": 53,
+
+  "qwen3_235b": 62,
+  "qwen_72b": 53,
+  "qwen_32b": 42,
+  "qwen_14b": 32,
+  "qwen_7b": 18,
+
+  "gemma2_2b": 17,
+  "gemma2_9b": 26,
+  "gemma2_27b": 30
+}
