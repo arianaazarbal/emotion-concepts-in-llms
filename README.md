@@ -94,21 +94,18 @@ Exploratory follow-ups in `scripts/extras/`; archived heavier work in `archive/`
 
 ## Sample results on Gemma
 
-**Steering changes the substance of advice.** Recommendation rate vs. steering
-strength on the confront-vs-wait prompt — confrontational emotions push one way,
-calming emotions the other.
+**Steering changes the substance of advice.** For example, if the user asks to whether to confront someone or wait, steering with angry vs. calm emotions shifts advice in expected ways. Steering with calm makes the assistant less likely to recommend confrontation. Steering negatively with angry also makes it less likely to recommend confrontation. 
 
 ![Rate of assistant recommending that the user confront someone as a function of angry/calm steering strength](figures/gemma_9b_advice_1.png)
 
 **Logit lens.** Decoding the emotion vectors through the unembedding yields
-intuitive tokens (original and denoised alike).
+intuitive token.
 
 ![Logit-lens decoding of some emotion vectors](figures/gemma_9b_logitlens_og.png)
 
 ## Creating the emotion vectors
 
 ```bash
-# Start small (20 curated emotions); generation is cached so you can grow the set:
 python -m src.extracting_emotion_vectors.extract_emotion_vectors \
   --model gemma2_9b --n 4 --start-at-nth-token 50 \
   --emotions "$(python -c 'import json;print(json.load(open("data/emotions_minimal.json")))')"
